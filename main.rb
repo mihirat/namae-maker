@@ -20,7 +20,7 @@ CHAR_3 = [[3, 5], [3, 15], [4, 11], [4, 12], [5, 10], [6, 9], [9, 15], [12, 12]]
 
 STROKE_CHARS = [2,3,4,5,6,7,8,9,10,11,12,13,14,20].map do |i|
   [i, read_chars(i)]
-end
+end.to_h
 
 NG_LIST = ng_chars
 GOOD_LIST = good_chars
@@ -32,7 +32,7 @@ CHAR2_NG_LIST = '善朝衣帆紗江羽乃仁'
 
 case ENV['MODE']
 when "1"
-  CHAR_1.map { STROKE_CHARS[num].map { |char| puts char } }
+  CHAR_1.map { |num| STROKE_CHARS[num].map { |char| puts char } }
 when "2"
   CHAR_2.map do |combi|
     STROKE_CHARS[combi[0]].map do |char_1|
